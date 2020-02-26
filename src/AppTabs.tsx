@@ -1,23 +1,13 @@
 import React, { useContext } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AppParamList } from "./AppParamList";
-import { Center } from "./Center";
-import { Text, Button } from "react-native";
-import { AuthContext } from "./AuthProvider";
 import { AntDesign, Ionicons, EvilIcons } from "@expo/vector-icons";
 import { HomeStack } from "./HomeStack";
+import { SearchStack } from "./SearchStack";
 
 interface AppTabsProps {}
 
 const Tabs = createBottomTabNavigator<AppParamList>();
-
-function Search() {
-  return (
-    <Center>
-      <Text>search</Text>
-    </Center>
-  );
-}
 
 export const AppTabs: React.FC<AppTabsProps> = ({}) => {
   return (
@@ -43,7 +33,7 @@ export const AppTabs: React.FC<AppTabsProps> = ({}) => {
       }}
     >
       <Tabs.Screen name="Home" component={HomeStack} />
-      <Tabs.Screen name="Search" component={Search} />
+      <Tabs.Screen name="Search" component={SearchStack} />
     </Tabs.Navigator>
   );
 };
