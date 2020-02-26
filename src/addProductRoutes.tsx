@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TouchableOpacity, Text, Button } from "react-native";
-import { HomeStackNavProps } from "./HomeParamList";
+import { HomeStackNavProps, HomeParamList } from "./HomeParamList";
 import { Center } from "./Center";
+import { StackNavigationState, TypedNavigator } from "@react-navigation/native";
+import { SearchParamList, SearchStackNavProps } from "./SearchParamList";
 
 function Product({ route, navigation }: HomeStackNavProps<"Product">) {
   return (
@@ -44,7 +46,15 @@ function EditProduct({ route, navigation }: HomeStackNavProps<"EditProduct">) {
   );
 }
 
-export const addProductRoutes = (Stack: any) => {
+export const addProductRoutes = (
+  Stack: TypedNavigator<
+    HomeParamList | SearchParamList,
+    StackNavigationState,
+    any,
+    any,
+    any
+  >
+) => {
   return (
     <>
       <Stack.Screen
